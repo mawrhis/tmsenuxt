@@ -27,7 +27,7 @@ export default {
 <script>
 import PostContent from '../../pages/posts/post/_id.vue'
 import Btn from '../../components/btn/btn.vue'
-import Logo from '../../components/logo.vue'
+import Logo from '../../components/logo/logo.vue'
 
 import jsonData from '../../static/data.json'
 
