@@ -4,6 +4,7 @@ export default {
 }
 </script>
 <template>
+  <section class="container">
   <div>
       <h1 class="header">
         <logo />
@@ -13,11 +14,14 @@ export default {
         <btn :click="randomPost" :text="'Random'"/>
         <btn :click="nextPost" :disabled="isNewestPost" :text="'Next'"/>
       </div>
-      <postContent
-        :title="currentPost.title"
-        :tags="currentPost.tags"
-        :content="currentPost.content"/>
+     <transition>
+        <postContent
+          :title="currentPost.title"
+          :tags="currentPost.tags"
+          :content="currentPost.content"/>
+      </transition>
   </div>
+  </section>
 </template>
 
 <script>
@@ -30,6 +34,7 @@ import jsonData from '~/data.json'
 const OLDEST_POST_ID = 1
 
 export default {
+  transition: 'test',
   computed: {
     isNewestPost () {
       return this.currentPostId === this.newestPostId
@@ -39,7 +44,11 @@ export default {
     },
     newestPostId () {
      return this.posts.length
-    }
+    },
+    hasPath () {
+      console.log(this.$route.params.id)
+      return this.$route.params.id
+    },
   },
   data: function () {
     return {
@@ -54,14 +63,12 @@ export default {
   },
   created () {
     this.posts = jsonData.data
-    this.currentPostId = this.newestPostId
-    this.currentPost = this.posts.find( ({ id }) => id === parseInt(this.$route.params.id) )
-
+  },
+  mounted () {
+    this.hasPath ? this.currentPostId = parseInt(this.hasPath) : this.currentPostId = `post/${this.newestPostId}`
+    this.updatePost(this.currentPostId)
   },
   methods: {
-    isCurrentPathId () {
-
-    },
     previousPost () {
       this.currentPostId--
       this.updatePost(this.currentPostId)
@@ -79,6 +86,7 @@ export default {
       this.$router.push({ path:`${newId}`})
       this.currentPost = this.posts.find( ({ id }) => id === newId )
     },
+
   },
   components: {
     PostContent,
@@ -106,5 +114,14 @@ export default {
 }
 .header {
   grid-row: 1;
+}
+
+/* transitions */
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

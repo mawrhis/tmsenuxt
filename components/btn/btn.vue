@@ -1,5 +1,5 @@
 <template>
-  <button v-on:click="click" class="btn">{{ text }}</button>
+  <a v-on:click="click" class="btn">{{ text }}</a>
 </template>
 <script>
 export default {
@@ -24,6 +24,7 @@ $light-grey: #e0e0e0;
   background: #fff;
   font-weight: 600;
   font-size: 14px;
+  text-align: center;
   color: $dark-grey;
   border-radius: 5px;
   border: solid 1px #fff;

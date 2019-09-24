@@ -1,6 +1,12 @@
 import pkg from './package'
 
 export default {
+  router: {
+    extendRoutes (routes) {
+      routes.push({ path: '/', redirect: '/posts/post' })
+    }
+  },
+
   mode: 'universal',
 
   /*
