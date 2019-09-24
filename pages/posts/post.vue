@@ -90,8 +90,7 @@ export default {
   },
   components: {
     PostContent,
-    Btn,
-    Logo
+    Btn
   }
 }
 </script>
