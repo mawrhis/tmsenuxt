@@ -27,6 +27,7 @@ export default {
 <script>
 import PostContent from '~/pages/posts/post/_id.vue'
 import Btn from '~/components/btn/btn.vue'
+import Logo from '~/components/logo.vue'
 
 import jsonData from '~/data.json'
 
@@ -89,7 +90,8 @@ export default {
   },
   components: {
     PostContent,
-    Btn
+    Btn,
+    Logo
   }
 }
 </script>
