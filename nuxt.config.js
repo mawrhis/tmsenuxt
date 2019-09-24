@@ -1,5 +1,17 @@
 import pkg from './package'
 
+function routes(numberOfPosts) {
+ var array = []
+ var posts = numberOfPosts
+ var i = 0
+ while (i < posts) {
+  let string = '/posts/post/' + i
+  i++
+  array.push(string)
+ }
+ return array
+}
+
 export default {
   router: {
     extendRoutes (routes) {
@@ -46,6 +58,10 @@ export default {
   */
   modules: [
   ],
+
+  generate: {
+    routes: routes(72)
+  },
 
   /*
   ** Build configuration

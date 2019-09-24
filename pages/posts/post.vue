@@ -25,11 +25,11 @@ export default {
 </template>
 
 <script>
-import PostContent from '~/pages/posts/post/_id.vue'
-import Btn from '~/components/btn/btn.vue'
-import Logo from '~/components/logo.vue'
+import PostContent from '../../pages/posts/post/_id.vue'
+import Btn from '../../components/btn/btn.vue'
+import Logo from '../../components/logo.vue'
 
-import jsonData from '~/data.json'
+import jsonData from '../../static/data.json'
 
 const OLDEST_POST_ID = 1
 
