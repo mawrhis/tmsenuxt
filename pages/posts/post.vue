@@ -82,7 +82,7 @@ export default {
       this.updatePost(randId)
     },
     updatePost (id) {
-      let newId = id
+      let newId = parseInt(id)
       this.$router.push({ path:`${newId}`})
       this.currentPost = this.posts.find( ({ id }) => id === newId )
     },
