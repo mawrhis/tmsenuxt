@@ -63,10 +63,11 @@ export default {
   },
   created () {
     this.posts = jsonData.data
+    this.lastPostId = this.newestPostId
   },
   mounted () {
-    this.hasPath ? this.currentPostId = parseInt(this.hasPath) : this.currentPostId = `post/${this.newestPostId}`
-    this.updatePost(this.currentPostId)
+    this.currentPostId = this.lastPostId
+    this.currentPost = this.posts.find( ({ id }) => id === this.lastPostId )
   },
   methods: {
     previousPost () {
@@ -83,7 +84,7 @@ export default {
     },
     updatePost (id) {
       let newId = id
-      this.$router.push({ path:`${newId}`})
+      this.$router.push({ name: 'posts-post-id', params: { id: `${newId}` }})
       this.currentPost = this.posts.find( ({ id }) => id === newId )
     },
 
