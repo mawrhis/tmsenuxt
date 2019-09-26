@@ -58,8 +58,13 @@ export default {
       currentPost: {}
     }
   },
-  watcher () {
-
+  watch: {
+    hasPath () {
+      if (this.hasPath === undefined) {
+        this.currentPostId = this.lastPostId
+        this.currentPost = this.posts.find( ({ id }) => id === this.lastPostId )
+      }
+    }
   },
   created () {
     this.posts = jsonData.data
@@ -80,6 +85,7 @@ export default {
     },
     randomPost () {
       let randId = Math.floor(Math.random() * ( this.posts.length - 1) + 1)
+      this.currentPostId = randId
       this.updatePost(randId)
     },
     updatePost (id) {
