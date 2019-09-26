@@ -9,6 +9,7 @@ function routes(numberOfPosts) {
   i++
   array.push(string)
  }
+ array.push('posts/post')
  return array
 }
 
