@@ -16,5 +16,6 @@ export default {
 }
 .logo img{
   position: relative;
+  width: 100%;
 }
 </style>

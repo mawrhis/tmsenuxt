@@ -97,15 +97,26 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .container {
   display: grid;
   margin: 0 auto;
-  width: 900px;
-  grid-template-columns: 900px;
+  width: 100%;
+  grid-template-columns: 100%;
+  // grid-template-columns: 900px;
   grid-template-rows: 140px 30px auto;
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
+
+  // @media screen and (min-width: 400px) {
+  // width: 350px;
+  // grid-template-columns: 350px;
+  // }
+
+  @media screen and (min-width: 1000px) {
+  width: 900px;
+  grid-template-columns: 900px;
+  }
 }
 .menu {
   width: 100%;
@@ -115,6 +126,10 @@ export default {
 }
 .header {
   grid-row: 1;
+}
+
+img {
+  width: 100%;
 }
 
 /* transitions */
